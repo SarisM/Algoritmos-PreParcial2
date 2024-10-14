@@ -1,5 +1,5 @@
 import { appState, dispatch } from "../../store/index";
-import { Task } from "../../types/tasks"; // Asume que tienes un tipo 'Task' definido en tu store
+import { Task } from "../../types/tasks";
 
 class TaskList extends HTMLElement {
     tasks: Task[] = [];
@@ -11,7 +11,6 @@ class TaskList extends HTMLElement {
 
     connectedCallback() {
         this.render();
-        // Escucha cambios en el estado global de las tareas (asumiendo que usas algún sistema de suscripción)
         appState.subscribe(() => this.updateTasks());
     }
 
@@ -38,10 +37,9 @@ class TaskList extends HTMLElement {
         const taskListContainer = this.shadowRoot.querySelector('.task-list');
 
         if (taskListContainer) {
-            // Limpia la lista antes de agregar las tareas
+           
             taskListContainer.innerHTML = '';
 
-            // Crea un <task-item> por cada tarea
             this.tasks.forEach(task => {
                 const taskItem = document.createElement('task-item');
                 taskItem.setAttribute('uid', task.uid.toString());

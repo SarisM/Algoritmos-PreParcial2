@@ -1,6 +1,6 @@
-import { addObserver, appState } from "../store/index"; // Observamos los cambios del estado
-import '../components/task-form/taskForm'; // Importa el componente del formulario
-import '../components/task-list/taskList'; // Importa el componente de la lista de tareas
+import { addObserver, appState } from "../store/index"; 
+import '../components/task-form/taskForm';
+import '../components/task-list/taskList'; 
 
 class Dashboard extends HTMLElement {
 
@@ -43,7 +43,7 @@ class Dashboard extends HTMLElement {
                 }
             </style>
             <div class="dashboard">
-                <h1>Task  Dashboard</h1>
+                <h1>Task list</h1>
                 <task-form></task-form> <!-- Formulario para agregar nuevas tareas -->
                 <task-list></task-list> <!-- Lista de tareas actuales -->
             </div>
@@ -51,5 +51,5 @@ class Dashboard extends HTMLElement {
     }
 }
 
-customElements.define('dashboard-component', Dashboard);
+customElements.define('app-dashboard', Dashboard);
 export default Dashboard;
