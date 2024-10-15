@@ -25,22 +25,16 @@ class TaskItem extends HTMLElement {
         this.render();
     }
 
+   
     attributeChangedCallback(propName: Attribute, oldValue: string | undefined, newValue: string | undefined) {
-        switch (propName) {
-            case Attribute.utitle:
-                this.utitle = newValue;
-                break;
-            case Attribute.description:
-                this.description = newValue;
-                break;
-            case Attribute.uid:
-                this.uid = newValue;
-                break;
-            default:
-                break;
+        if (propName === Attribute.uid) {
+            this[propName] = newValue ? Number(newValue) : undefined;
+        } else {
+            this[propName] = newValue
         }
         this.render();
     }
+
 
     render() {
         if (this.shadowRoot) {
@@ -51,6 +45,7 @@ class TaskItem extends HTMLElement {
                         <p>${this.getAttribute('description')}</p>
                     </div>
                     <button class="delete-btn">Delete</button>
+                    <button class="completed-task">task completed</button>
                 </div>
             `;
 

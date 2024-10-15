@@ -12,7 +12,7 @@ class AppContainer extends HTMLElement {
 
     connectedCallback() {
         this.render();
-        console.log('appSate')
+        console.log(appState)
     }
 
     render() {
